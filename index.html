@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script
+      src="https://kit.fontawesome.com/fe386cfee9.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Portfolio | Nikita</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js"></script>
+  </head>
+
+  <body>
+    <a
+      href="#"
+      class="logo fixed top-5 left-5 md:left-[3.2rem] z-50 self-center text-lg md:text-xl tracking-tight font-bold whitespace-nowrap text-[#0f882e] drop-shadow-md mix-blend-difference"
+      >Valerie's</a
+    >
+    <nav class="bg-transparent border-gray-200 fixed top-0 z-10 w-full">
+      <div
+        class="max-w-screen-xl flex items-center justify-between mx-auto p-4"
+      >
+        <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
+        </a>
+
+        <div class="hidden md:block md:w-auto" id="navbar-desktop">
+          <ul
+            class="nav-bar font-medium flex flex-row space-x-2 p-1 px-2 text-sm shadow-md border border-gray-100 rounded-xl bg-white dark:bg-gray-900 dark:border-gray-700"
+          >
+            <li>
+              <a
+                href="#hero"
+                class="nav-link block text-xs font-semibold py-2 px-3 text-gray-900 rounded-sm md:bg-transparent md:p-0 dark:text-white"
+                data-section="hero"
+                >Beranda.</a
+              >
+            </li>
+            <li>
+              <a
+                href="#ProfilDiri"
+                class="nav-link block text-xs font-semibold py-2 px-3 text-gray-900 rounded-sm md:hover:bg-transparent md:border-0 md:p-0 dark:text-white"
+                data-section="ProfilDiri"
+                >Profil Diri.</a
+              >
+            </li>
+            <li>
+              <a
+                href="#Ekstrakurikuler"
+                class="nav-link block text-xs font-semibold py-2 px-3 text-gray-900 rounded-sm md:hover:bg-transparent md:border-0 md:p-0 dark:text-white"
+                data-section="Ekstrakurikuler"
+                >Ekstrakurikuler.</a
+              >
+            </li>
+            <li>
+              <a
+                href="#Prestasi"
+                class="nav-link block text-xs font-semibold py-2 px-3 text-gray-900 rounded-sm md:hover:bg-transparent md:border-0 md:p-0 dark:text-white"
+                data-section="Prestasi"
+                >Prestasi.</a
+              >
+            </li>
+            <li>
+              <a
+                href="#Galeri"
+                class="nav-link block text-xs font-semibold py-2 px-3 text-gray-900 rounded-sm md:hover:bg-transparent md:border-0 md:p-0 dark:text-white"
+                data-section="Galeri"
+                >Galeri.</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div class="flex items-center gap-4 md:gap-0">
+          <div class="md:hidden">
+            <i
+              class="fa-solid fa-moon text-xl text-blue-500 cursor-pointer"
+            ></i>
+          </div>
+          <button
+            id="menu-toggle"
+            type="button"
+            class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+            aria-controls="navbar-mobile"
+            aria-expanded="false"
+          >
+            <span class="sr-only">Open main menu</span>
+            <svg
+              id="menu-icon"
+              class="w-5 h-5"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 17 14"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M1 1h15M1 7h15M1 13h15"
+              />
+            </svg>
+            <svg
+              id="close-icon"
+              class="w-5 h-5 hidden"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+          <div class="hidden md:block">
+            <i
+              class="fa-solid fa-moon text-xl text-blue-500 cursor-pointer"
+            ></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div
+        id="navbar-mobile"
+        class="hidden fixed top-16 right-4 w-64 md:hidden"
+      >
+        <ul
+          class="nav-bar font-medium flex flex-col p-3 text-sm shadow-lg border border-gray-100 rounded-xl bg-white dark:bg-gray-800 dark:border-gray-700"
+        >
+          <li>
+            <a
+              href="#hero"
+              class="nav-link block text-xs font-semibold py-2 px-3 text-gray-900 rounded-sm dark:text-white"
+              data-section="hero"
+              >Beranda.</a
+            >
+          </li>
+          <li>
+            <a
+              href="#ProfilDiri"
+              class="nav-link block text-xs font-semibold py-2 px-3 text-gray-900 rounded-sm dark:text-white"
+              data-section="ProfilDiri"
+              >Profil Diri.</a
+            >
+          </li>
+          <li>
+            <a
+              href="#Ekstrakurikuler"
+              class="nav-link block text-xs font-semibold py-2 px-3 text-gray-900 rounded-sm dark:text-white"
+              data-section="Ekstrakurikuler"
+              >Ekstrakurikuler.</a
+            >
+          </li>
+          <li>
+            <a
+              href="#Prestasi"
+              class="nav-link block text-xs font-semibold py-2 px-3 text-gray-900 rounded-sm dark:text-white"
+              data-section="Prestasi"
+              >Prestasi.</a
+            >
+          </li>
+          <li>
+            <a
+              href="#Galeri"
+              class="nav-link block text-xs font-semibold py-2 px-3 text-gray-900 rounded-sm dark:text-white"
+              data-section="Galeri"
+              >Galeri.</a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <section class="md:w-full relative" id="hero">
+      <div class="h-[80%] flex items-center justify-center text-white px-4">
+        <div class="text-center relative">
+          <h1 class="flex flex-col">
+            <span class="text-sm md:text-2xl font-medium">Halo, saya</span>
+            <span
+              class="heading text-[4em] md:text-[5em] tracking-tight -mt-2 md:-mt-5"
+              >Nikita Valerie Aurelia</span
+            >
+          </h1>
+          <span
+            class="absolute top-0 right-[-1em] md:right-[-1.5em] text-[2em] md:text-[3em] animate-spins"
+            >🌸</span
+          >
+          <p class="lead text-xs md:text-md mt-2">
+            Siswi SMAN 62 yang aktif, kreatif, dan selalu ingin belajar hal baru
+          </p>
+          <button
+            onclick="document.getElementById('ProfilDiri').scrollIntoView({behavior: 'smooth'})"
+            class="md:p-2.5 md:px-5 p-2 px-3 md:text:md text-xs bg-[#ee58c8] mt-8 rounded-xl active:shadow-none hover:shadow-[0px_4px_0px_0px_#f077d1] shadow-[0px_6px_0px_0px_#f077d1] hover:translate-y-1 active:translate-y-2 transition border border-[#f077d1] outline-1 outline-offset-[-1px] outline-[#f077d1] text-sm md:text-base"
+          >
+            Let's Get To Know Me!
+          </button>
+        </div>
+      </div>
+    </section>
+    <section class="flex items-center px-4" id="ProfilDiri">
+      <div
+        class="w-full rounded max-w-5xl mx-auto overflow-hidden bg-white dark:bg-gray-800/50 backdrop-blur-lg"
+      >
+        <div class="relative p-4 md:p-6">
+          <div class="absolute inset-0 opacity-5 dark:opacity-10">
+            <div
+              class="absolute inset-0 bg-gradient-to-r from-pink-100 via-purple-100 to-indigo-100 dark:from-pink-900 dark:via-purple-900 dark:to-indigo-900"
+            ></div>
+            <div
+              class="absolute inset-0"
+              style="
+                background-image: radial-gradient(
+                  circle at 2px 2px,
+                  rgba(0, 0, 0, 0.1) 1px,
+                  transparent 0
+                );
+                background-size: 20px 20px;
+              "
+            ></div>
+          </div>
+
+          <div
+            class="relative flex flex-col md:flex-row md:items-center gap-6 md:gap-[3em]"
+          >
+            <div class="flex-shrink-0 mb-4 mx-auto md:mx-0">
+              <div class="relative group">
+                <div
+                  class="w-48 h-48 md:w-64 md:h-64 p-1 items-center overflow-hidden rounded-full shadow-[0px_6px_0px_0px_#f077d1] border border-[#f077d1] outline-1 outline-offset-[-1px] outline-[#f077d1]"
+                >
+                  <img
+                    src="https://via.placeholder.com/256"
+                    class="relative w-full h-full rounded-full object-center bg-white"
+                    alt="Error    User"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="flex-1 space-y-4">
+              <div>
+                <h2
+                  class="text-2xl md:text-3xl text-gray-900 dark:text-white impact tracking-normal"
+                >
+                  Profil Diri.
+                </h2>
+                <p
+                  class="mt-2 text-sm md:text-base text-gray-600 dark:text-gray-300"
+                >
+                  Halo! Tak kenal maka tak sayang. Nama saya
+                  <span class="impact text-[#f077d1]"
+                    >Nikita Valerie Aurelia.</span
+                  >
+                  Saya seorang siswi SMAN 62 Jakarta yang memiliki minat di
+                  bidang seni musik, organisasi, dan pengembangan diri. Saya
+                  senang berpartisipasi dalam kegiatan bermasyarakat, bekerja
+                  sama dengan tim, serta belajar hal-hal baru untuk mengasah
+                  kemampuan saya.
+                </p>
+                <p
+                  class="mt-5 text-sm md:text-base text-gray-600 dark:text-gray-300"
+                >
+                  Saya percaya bahwa setiap pengalaman, sekecil apapun, dapat
+                  menjadi langkah untuk berkembang lebih baik dan mencapai
+                  impian saya.
+                </p>
+              </div>
+
+              <div class="flex gap-4 justify-center md:justify-start">
+                <a
+                  href="#"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center cursor-pointer gap-2 px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-200 bg-gray-100 dark:bg-gray-700/50 rounded-full hover:bg-gray-200 dark:hover:bg-gray-600/50 transition-colors duration-200"
+                >
+                  <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a
+                  href="#"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center cursor-pointer gap-2 px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-200 bg-gray-100 dark:bg-gray-700/50 rounded-full hover:bg-gray-200 dark:hover:bg-gray-600/50 transition-colors duration-200"
+                >
+                  <i class="fa-solid fa-envelope"></i>
+                </a>
+                <a
+                  href="#"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center cursor-pointer gap-2 px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-200 bg-gray-100 dark:bg-gray-700/50 rounded-full hover:bg-gray-200 dark:hover:bg-gray-600/50 transition-colors duration-200"
+                >
+                  <i class="fa-brands fa-github"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section
+      class="flex flex-col gap-[3rem] mt-[3rem] px-4"
+      id="Ekstrakurikuler"
+    >
+      <div class="flex flex-col gap-2">
+        <h2
+          class="text-2xl md:text-3xl text-gray-900 dark:text-white impact tracking-normal text-center"
+        >
+          Ekstrakurikuler.
+        </h2>
+        <p class="text-center text-sm md:text-base">
+          Beberapa kegiatan ekstrakurikuler yang saya ikuti di sekolah:
+        </p>
+      </div>
+      <div
+        class="ekstrakurikuler-grid mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center gap-4 md:gap-8 lg:gap-10 max-w-6xl"
+      >
+        <div
+          class="inline-flex bg-[#fffafb] p-4 overflow-hidden rounded-[40px] h-60 hover:shadow-[0px_6px_0px_0px_#f077d1] hover:-translate-y-2 transition border border-[#f077d1] outline-1 outline-offset-[-1px] outline-[#f077d1]"
+        >
+          <div class="inline-flex flex-col justify-evenly">
+            <h2
+              class="flex flex-col items-start justify-start text-2xl md:text-3xl font-medium text-white"
+            >
+              <span class="rounded-lg bg-[#f077d1] px-2">Band</span>
+            </h2>
+            <span class="text-black text-sm text-justify indent-8"
+              >Saya aktif dalam kegiatan Band yang mengasah skill bermain alat
+              musik, kerja sama tim, dan rasa tanggung jawab.</span
+            >
+          </div>
+        </div>
+        <div
+          class="inline-flex bg-[#fffafb] p-4 overflow-hidden rounded-[40px] h-60 hover:shadow-[0px_6px_0px_0px_#f077d1] hover:-translate-y-2 transition border border-[#f077d1] outline-1 outline-offset-[-1px] outline-[#f077d1]"
+        >
+          <div class="inline-flex flex-col justify-evenly">
+            <h2
+              class="flex flex-col items-start justify-start text-2xl md:text-3xl font-medium text-white"
+            >
+              <span class="rounded-lg bg-[#f077d1] px-2">Paduan </span
+              ><span class="rounded-lg bg-[#f077d1] px-2">Suara</span>
+            </h2>
+            <span class="text-black text-sm text-justify indent-8"
+              >Melalui Paduan Suara, saya belajar mengekspresikan diri dengan
+              mengenal lebih dalam warna suara yang saya miliki</span
+            >
+          </div>
+        </div>
+        <div
+          class="inline-flex bg-[#fffafb] p-4 overflow-hidden rounded-[40px] h-60 hover:shadow-[0px_6px_0px_0px_#f077d1] hover:-translate-y-2 transition border border-[#f077d1] outline-1 outline-offset-[-1px] outline-[#f077d1]"
+        >
+          <div class="inline-flex flex-col justify-evenly">
+            <h2
+              class="flex flex-col items-start justify-start text-2xl md:text-3xl font-medium text-white"
+            >
+              <span class="rounded-lg bg-[#f077d1] px-2">Rohkris</span>
+            </h2>
+            <span class="text-black text-sm text-justify indent-8"
+              >Saya berperan sebagai pemusik dalam berbagai kegiatan kerohanian
+              kristen di sekolah, dan saya senang untuk melayani dan memuliakan
+              nama Tuhan</span
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="Prestasi">
+      <div class="maintenance-container">
+        <div class="maintenance-icon">
+          <i class="fa-solid fa-screwdriver-wrench"></i>
+        </div>
+        <h2 class="text-3xl md:text-4xl impact text-gray-900 mb-4">Error.</h2>
+        <p class="text-gray-600 text-base md:text-lg max-w-md">
+          Saya masih mengerjakan sisa halamannya.
+        </p>
+      </div>
+    </section>
+    <section id="Galeri"></section>
+  </body>
+</html>
