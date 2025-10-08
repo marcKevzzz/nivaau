@@ -1,5 +1,19 @@
 @import url("https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 
+/* 🌙 Dark Theme Customization */
+:root {
+  --dark-bg: #0b0e13; /* Deep blue-black background */
+  --dark-surface: #121826; /* Slightly lighter for sections/cards */
+  --dark-accent: #3b82f6; /* Blue accent color */
+  --dark-text: #e5e7eb; /* Light gray for text */
+}
+
+/* Toggle Icon Active */
+#theme-toggle i.active {
+  color: #60a5fa; /* lighter blue */
+  text-shadow: 0 0 8px #3b82f6;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -14,6 +28,41 @@ html {
 body {
   height: fit-content;
   min-height: 100vh;
+}
+
+body.dark-mode {
+  background-color: var(--dark-bg);
+  color: var(--dark-text);
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+body.dark-mode .nav-bar {
+  background-color: rgba(18, 24, 38, 0.9);
+  border-color: rgba(59, 130, 246, 0.3);
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+body.dark-mode .nav-bar a {
+  color: var(--dark-text);
+  padding-inline: 12px;
+}
+
+body.dark-mode .nav-bar a:hover,
+body.dark-mode .nav-bar .active {
+  background-color: var(--dark-accent);
+  color: white;
+}
+
+body.dark-mode .card,
+body.dark-mode .bg-white {
+  background-color: var(--dark-surface) !important;
+  color: var(--dark-text);
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+body.dark-mode section:first-of-type::after {
+  background: linear-gradient(to bottom, transparent, var(--dark-bg));
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 .nav-bar a {
@@ -77,29 +126,6 @@ section:first-of-type::after {
   z-index: 0;
 }
 
-@keyframes gradient {
-  0% {
-    background-position: 0% 50%;
-    filter: hue-rotate(0deg);
-  }
-  25% {
-    background-position: 50% 100%;
-    filter: hue-rotate(90deg);
-  }
-  50% {
-    background-position: 100% 50%;
-    filter: hue-rotate(180deg);
-  }
-  75% {
-    background-position: 50% 0%;
-    filter: hue-rotate(270deg);
-  }
-  100% {
-    background-position: 0% 50%;
-    filter: hue-rotate(360deg);
-  }
-}
-
 .heading {
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
 }
@@ -114,12 +140,6 @@ section:first-of-type::after {
 
 .impact {
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
-}
-
-@keyframes spins {
-  to {
-    transform: rotate(360deg);
-  }
 }
 
 /* Responsive adjustments */
@@ -141,24 +161,6 @@ section:first-of-type::after {
   .heading {
     font-size: 2em !important;
   }
-}
-
-/* Maintenance page styles */
-.maintenance-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 60vh;
-  text-align: center;
-  padding: 2rem;
-}
-
-.maintenance-icon {
-  font-size: 5rem;
-  color: #f077d1;
-  margin-bottom: 1.5rem;
-  animation: bounce 2s infinite;
 }
 
 .star {
@@ -189,6 +191,52 @@ section:first-of-type::after {
   transform: rotate(45deg) skewX(22.5deg) skewY(22.5deg);
 }
 
+.carousel-slide img {
+  filter: grayscale(100%);
+  transition: filter 0.5s ease;
+}
+
+#carousel:hover .carousel-slide img {
+  filter: grayscale(0%);
+}
+
+#prevBtn:hover .carousel-slide img,
+#nextBtn:hover .carousel-slide img {
+  filter: grayscale(0%);
+}
+
+/* Prevent transition flickers */
+.carousel-slide {
+  transition: opacity 0.8s ease;
+}
+
+.fade-up {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-up.show {
+  animation: fadeUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: var(--delay, 0s);
+}
+
+/* Smooth sequence delay (so they appear one after another)
+[style*="animation-delay"] {
+  animation-delay: var(--delay, 0s);
+} */
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @keyframes twinkle {
   0%,
   100% {
@@ -207,5 +255,34 @@ section:first-of-type::after {
   }
   50% {
     transform: translateY(-20px);
+  }
+}
+
+@keyframes spins {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+    filter: hue-rotate(0deg);
+  }
+  25% {
+    background-position: 50% 100%;
+    filter: hue-rotate(90deg);
+  }
+  50% {
+    background-position: 100% 50%;
+    filter: hue-rotate(180deg);
+  }
+  75% {
+    background-position: 50% 0%;
+    filter: hue-rotate(270deg);
+  }
+  100% {
+    background-position: 0% 50%;
+    filter: hue-rotate(360deg);
   }
 }

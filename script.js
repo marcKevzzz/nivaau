@@ -1,4 +1,50 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // const toggle1 = document.getElementById("theme-toggle");
+  // const toggle2 = document.getElementById("theme-toggles");
+
+  // const icons = [
+  //   toggle1 ? toggle1.querySelector("i") : null,
+  //   toggle2 ? toggle2.querySelector("i") : null,
+  // ].filter(Boolean);
+
+  // // Update icons for both toggles
+  // function updateIcons(isDark) {
+  //   icons.forEach((icon) => {
+  //     icon.classList.toggle("fa-moon", !isDark);
+  //     icon.classList.toggle("fa-sun", isDark);
+  //     icon.classList.toggle("active", isDark);
+  //   });
+  // }
+
+  // // Initialize theme
+  // function applyTheme(theme) {
+  //   const isDark = theme === "dark";
+  //   document.documentElement.classList.toggle("dark", isDark); // Tailwind dark mode
+  //   updateIcons(isDark);
+  //   localStorage.setItem("theme", theme);
+  // }
+
+  // // Load saved or system preference
+  // const savedTheme = localStorage.getItem("theme");
+  // if (
+  //   savedTheme === "dark" ||
+  //   (!savedTheme && window.matchMedia("(prefers-color-scheme: dark)").matches)
+  // ) {
+  //   applyTheme("dark");
+  // } else {
+  //   applyTheme("light");
+  // }
+
+  // // Toggle theme handler
+  // function toggleTheme() {
+  //   const isDark = !document.documentElement.classList.contains("dark");
+  //   applyTheme(isDark ? "dark" : "light");
+  // }
+
+  // // Attach listeners
+  // if (toggle1) toggle1.addEventListener("click", toggleTheme);
+  // if (toggle2) toggle2.addEventListener("click", toggleTheme);
+
   const numStars = 15;
   const hero = document.getElementById("hero");
 
@@ -67,4 +113,82 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
+
+  let currentSlide = 0;
+  const slides = document.querySelectorAll(".carousel-slide");
+  const indicators = document.querySelectorAll(".indicator");
+  const totalSlides = slides.length;
+  const carousel = document.getElementById("carousel");
+
+  let autoSlideInterval; // store interval here
+
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.classList.remove("active");
+      slide.style.opacity = i === index ? "1" : "0";
+    });
+
+    indicators.forEach((indicator, i) => {
+      if (i === index) {
+        indicator.classList.add("active");
+        indicator.style.backgroundColor = "white";
+      } else {
+        indicator.classList.remove("active");
+        indicator.style.backgroundColor = "rgba(255, 255, 255, 0.5)";
+      }
+    });
+  }
+
+  function nextSlide() {
+    currentSlide = (currentSlide + 1) % totalSlides;
+    showSlide(currentSlide);
+  }
+
+  function prevSlide() {
+    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+    showSlide(currentSlide);
+  }
+
+  // Manual navigation
+  document.getElementById("nextBtn").addEventListener("click", nextSlide);
+  document.getElementById("prevBtn").addEventListener("click", prevSlide);
+
+  indicators.forEach((indicator, index) => {
+    indicator.addEventListener("click", () => {
+      currentSlide = index;
+      showSlide(currentSlide);
+    });
+  });
+
+  // Auto-slide setup
+  function startAutoSlide() {
+    autoSlideInterval = setInterval(nextSlide, 5000);
+  }
+
+  function stopAutoSlide() {
+    clearInterval(autoSlideInterval);
+  }
+
+  // Pause carousel on hover
+  carousel.addEventListener("mouseenter", stopAutoSlide);
+  carousel.addEventListener("mouseleave", startAutoSlide);
+
+  // Start autoplay initially
+  startAutoSlide();
+
+  const fadeUps = document.querySelectorAll(".fade-up");
+
+  const observer = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+          observer.unobserve(entry.target); // ✅ runs ONCE only
+        }
+      });
+    },
+    { threshold: 0.2 } // triggers when 20% visible
+  );
+
+  fadeUps.forEach((el) => observer.observe(el));
 });
